@@ -5,6 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Acme — Solusi Bisnis Digital Masa Depan</title>
   
+  <!-- Schema Markup Organization (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Acme Digital Inc.",
+    "alternateName": "Acme",
+    "url": "https://daffaph.github.io/Digital-Marketing/",
+    "logo": "https://daffaph.github.io/Digital-Marketing/assets/logo.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "(+62) 89659960109",
+      "contactType": "Customer Service",
+      "areaServed": "ID",
+      "availableLanguage": ["Indonesian", "English"]
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Jakarta Financial Tower Lt. 18",
+      "addressLocality": "Jakarta Selatan",
+      "addressRegion": "DKI Jakarta",
+      "postalCode": "12190",
+      "addressCountry": "ID"
+    },
+    "sameAs": [
+      "https://twitter.com/",
+      "https://linkedin.com/",
+      "https://instagram.com/"
+    ]
+  }
+  </script>
+
   <!-- Font Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,7 +72,6 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
-    /* Glassmorphism & Custom Effects */
     .glass-header {
       background: rgba(15, 23, 42, 0.85);
       backdrop-filter: blur(12px);
@@ -65,7 +96,7 @@
 <body class="bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden selection:bg-brand-500 selection:text-white">
 
   <!-- Toast Notification Container -->
-  <div id="toast" class="fixed top-24 right-5 z-50 transform translate-x-full transition-transform duration-300 ease-in-out max-w-sm bg-slate-900 border border-slate-700 text-white p-4 rounded-xl shadow-2xl flex items-center space-x-3 pointer-events-none">
+  <div id="toast" class="fixed top-24 right-5 z-50 transform translate-x-full transition-transform duration-300 ease-in-out max-w-sm bg-slate-900 border border-slate-700 text-white p-4 rounded-xl shadow-2xl flex items-center space-x-3 pointer-events-none" role="status" aria-live="polite">
     <div class="bg-emerald-500/20 p-2 rounded-lg text-emerald-400">
       <i data-lucide="check-circle" class="w-6 h-6"></i>
     </div>
@@ -80,20 +111,20 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-20">
         <!-- Logo -->
-        <a href="#" class="flex items-center space-x-3 group">
-          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-500 flex items-center justify-center text-white shadow-lg shadow-brand-500/30 group-hover:scale-105 transition-transform">
+        <a href="#" class="flex items-center space-x-3 group" aria-label="Acme Beranda">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-500 flex items-center justify-center text-white shadow-lg shadow-brand-500/30 group-hover:scale-105 transition-transform" aria-hidden="true">
             <i data-lucide="zap" class="w-6 h-6"></i>
           </div>
           <span class="text-2xl font-extrabold text-white tracking-tight">Acme<span class="text-brand-500">.</span></span>
         </a>
 
         <!-- Desktop Navigation Links -->
-        <nav class="hidden md:flex items-center space-x-8">
-          <a href="#fitur" class="text-slate-300 hover:text-white text-sm font-medium transition-colors">Fitur</a>
-          <a href="#keunggulan" class="text-slate-300 hover:text-white text-sm font-medium transition-colors">Keunggulan</a>
-          <a href="#harga" class="text-slate-300 hover:text-white text-sm font-medium transition-colors">Harga</a>
-          <a href="#faq" class="text-slate-300 hover:text-white text-sm font-medium transition-colors">FAQ</a>
-          <a href="#kontak" class="text-slate-300 hover:text-white text-sm font-medium transition-colors">Kontak</a>
+        <nav class="hidden md:flex items-center space-x-8" aria-label="Navigasi Utama">
+          <a href="#fitur" class="text-slate-200 hover:text-white text-sm font-medium transition-colors">Fitur</a>
+          <a href="#keunggulan" class="text-slate-200 hover:text-white text-sm font-medium transition-colors">Keunggulan</a>
+          <a href="#harga" class="text-slate-200 hover:text-white text-sm font-medium transition-colors">Harga</a>
+          <a href="#faq" class="text-slate-200 hover:text-white text-sm font-medium transition-colors">FAQ</a>
+          <a href="#kontak" class="text-slate-200 hover:text-white text-sm font-medium transition-colors">Kontak</a>
         </nav>
 
         <!-- CTA Button Desktop -->
@@ -104,7 +135,7 @@
         </div>
 
         <!-- Mobile Menu Button -->
-        <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white focus:outline-none p-2" aria-label="Toggle Navigation">
+        <button id="mobile-menu-btn" class="md:hidden text-slate-200 hover:text-white focus:outline-none p-2" aria-label="Buka Menu Navigasi" aria-expanded="false">
           <i data-lucide="menu" id="menu-icon" class="w-7 h-7"></i>
         </button>
       </div>
@@ -112,11 +143,11 @@
 
     <!-- Mobile Navigation Drawer -->
     <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-4 pt-2 pb-6 space-y-3">
-      <a href="#fitur" class="block py-2 text-slate-300 hover:text-white font-medium mobile-link">Fitur</a>
-      <a href="#keunggulan" class="block py-2 text-slate-300 hover:text-white font-medium mobile-link">Keunggulan</a>
-      <a href="#harga" class="block py-2 text-slate-300 hover:text-white font-medium mobile-link">Harga</a>
-      <a href="#faq" class="block py-2 text-slate-300 hover:text-white font-medium mobile-link">FAQ</a>
-      <a href="#kontak" class="block py-2 text-slate-300 hover:text-white font-medium mobile-link">Kontak</a>
+      <a href="#fitur" class="block py-2 text-slate-200 hover:text-white font-medium mobile-link">Fitur</a>
+      <a href="#keunggulan" class="block py-2 text-slate-200 hover:text-white font-medium mobile-link">Keunggulan</a>
+      <a href="#harga" class="block py-2 text-slate-200 hover:text-white font-medium mobile-link">Harga</a>
+      <a href="#faq" class="block py-2 text-slate-200 hover:text-white font-medium mobile-link">FAQ</a>
+      <a href="#kontak" class="block py-2 text-slate-200 hover:text-white font-medium mobile-link">Kontak</a>
       <a href="#kontak" class="block w-full text-center bg-brand-600 text-white font-semibold py-3 rounded-xl shadow-md mt-4 mobile-link">
         Mulai Sekarang
       </a>
@@ -125,115 +156,108 @@
 
   <!-- HERO SECTION -->
   <section class="relative pt-32 pb-20 md:pt-40 md:pb-32 gradient-bg overflow-hidden text-white">
-    <!-- Background Glow Elements -->
-    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="absolute top-1/3 right-10 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-500/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+    <div class="absolute top-1/3 right-10 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="text-center max-w-3xl mx-auto">
-        <div class="inline-flex items-center space-x-2 bg-slate-800/80 border border-slate-700/80 px-4 py-1.5 rounded-full text-xs md:text-sm font-medium text-brand-400 mb-6 backdrop-blur-md">
-          <span class="flex h-2 w-2 rounded-full bg-brand-400 animate-pulse"></span>
+        <div class="inline-flex items-center space-x-2 bg-slate-800/80 border border-slate-700/80 px-4 py-1.5 rounded-full text-xs md:text-sm font-medium text-brand-300 mb-6 backdrop-blur-md">
+          <span class="flex h-2 w-2 rounded-full bg-brand-400 animate-pulse" aria-hidden="true"></span>
           <span>Versi 3.0 Resmi Dirilis!</span>
         </div>
         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
           Buat Bisnis Anda Lebih <span class="gradient-text">Cepat & Efisien</span>
         </h1>
-        <p class="mt-6 text-lg sm:text-xl text-slate-300 leading-relaxed font-light">
+        <p class="mt-6 text-lg sm:text-xl text-slate-200 leading-relaxed font-light">
           Platform analitik & manajemen terpadu yang membantu skalabilitas bisnis Anda hingga 10x lipat dengan pemrosesan data real-time dan otomatisasi cerdas.
         </p>
         
         <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a href="#kontak" class="w-full sm:w-auto bg-brand-600 hover:bg-brand-500 text-white text-base font-semibold px-8 py-4 rounded-xl shadow-xl shadow-brand-600/30 transition-all hover:-translate-y-0.5 flex items-center justify-center space-x-2">
             <span>Coba Gratis Sekarang</span>
-            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            <i data-lucide="arrow-right" class="w-5 h-5" aria-hidden="true"></i>
           </a>
-          <button id="open-demo-btn" class="w-full sm:w-auto bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 text-white text-base font-semibold px-8 py-4 rounded-xl transition-all flex items-center justify-center space-x-2 backdrop-blur-md">
-            <i data-lucide="play-circle" class="w-5 h-5 text-brand-400"></i>
+          <button id="open-demo-btn" class="w-full sm:w-auto bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 text-white text-base font-semibold px-8 py-4 rounded-xl transition-all flex items-center justify-center space-x-2 backdrop-blur-md" aria-label="Lihat Demo Interaktif">
+            <i data-lucide="play-circle" class="w-5 h-5 text-brand-400" aria-hidden="true"></i>
             <span>Lihat Demo</span>
           </button>
         </div>
 
-        <div class="mt-8 flex items-center justify-center space-x-6 text-slate-400 text-xs sm:text-sm">
-          <span class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-emerald-400 mr-1.5"></i> Tanpa Kartu Kredit</span>
-          <span class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-emerald-400 mr-1.5"></i> Uji Coba 14 Hari</span>
-          <span class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-emerald-400 mr-1.5"></i> Batal Kapan Saja</span>
+        <div class="mt-8 flex items-center justify-center space-x-6 text-slate-300 text-xs sm:text-sm">
+          <span class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-emerald-400 mr-1.5" aria-hidden="true"></i> Tanpa Kartu Kredit</span>
+          <span class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-emerald-400 mr-1.5" aria-hidden="true"></i> Uji Coba 14 Hari</span>
+          <span class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-emerald-400 mr-1.5" aria-hidden="true"></i> Batal Kapan Saja</span>
         </div>
       </div>
 
       <!-- Live Interactive Visual Dashboard Preview -->
       <div class="mt-14 max-w-5xl mx-auto rounded-2xl p-2 bg-gradient-to-b from-slate-700/50 to-slate-800/30 border border-slate-700/60 shadow-2xl backdrop-blur-lg">
         <div class="bg-slate-900 rounded-xl overflow-hidden border border-slate-800">
-          <!-- Window Header Controls -->
           <div class="bg-slate-950/80 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
             <div class="flex items-center space-x-2">
-              <span class="w-3 h-3 rounded-full bg-rose-500 inline-block"></span>
-              <span class="w-3 h-3 rounded-full bg-amber-500 inline-block"></span>
-              <span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-rose-500 inline-block" aria-hidden="true"></span>
+              <span class="w-3 h-3 rounded-full bg-amber-500 inline-block" aria-hidden="true"></span>
+              <span class="w-3 h-3 rounded-full bg-emerald-500 inline-block" aria-hidden="true"></span>
             </div>
-            <div class="text-xs text-slate-400 font-mono bg-slate-800/60 px-3 py-1 rounded-md border border-slate-700/50">
+            <div class="text-xs text-slate-300 font-mono bg-slate-800/60 px-3 py-1 rounded-md border border-slate-700/50">
               dashboard.acme.id/analytics
             </div>
-            <div class="text-xs text-slate-400 flex items-center space-x-1">
-              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            <div class="text-xs text-slate-300 flex items-center space-x-1">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping" aria-hidden="true"></span>
               <span>Real-time</span>
             </div>
           </div>
 
-          <!-- Dashboard Content Mock -->
           <div class="p-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-            <!-- Metric 1 -->
             <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700/50">
-              <div class="flex justify-between items-center text-slate-400 text-xs font-medium">
+              <div class="flex justify-between items-center text-slate-300 text-xs font-medium">
                 <span>Total Revenue (Bulan Ini)</span>
-                <i data-lucide="dollar-sign" class="w-4 h-4 text-emerald-400"></i>
+                <i data-lucide="dollar-sign" class="w-4 h-4 text-emerald-400" aria-hidden="true"></i>
               </div>
               <div class="mt-2 text-2xl font-bold text-white" id="dash-revenue">Rp 128.450.000</div>
               <div class="mt-1 flex items-center text-xs text-emerald-400">
-                <i data-lucide="trending-up" class="w-3.5 h-3.5 mr-1"></i>
+                <i data-lucide="trending-up" class="w-3.5 h-3.5 mr-1" aria-hidden="true"></i>
                 <span>+18.2% vs bulan lalu</span>
               </div>
             </div>
 
-            <!-- Metric 2 -->
             <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700/50">
-              <div class="flex justify-between items-center text-slate-400 text-xs font-medium">
+              <div class="flex justify-between items-center text-slate-300 text-xs font-medium">
                 <span>Pengguna Aktif Saat Ini</span>
-                <i data-lucide="users" class="w-4 h-4 text-brand-400"></i>
+                <i data-lucide="users" class="w-4 h-4 text-brand-400" aria-hidden="true"></i>
               </div>
               <div class="mt-2 text-2xl font-bold text-white" id="dash-users">2,845</div>
               <div class="mt-1 flex items-center text-xs text-emerald-400">
-                <i data-lucide="trending-up" class="w-3.5 h-3.5 mr-1"></i>
+                <i data-lucide="trending-up" class="w-3.5 h-3.5 mr-1" aria-hidden="true"></i>
                 <span>+340 pengguna baru hari ini</span>
               </div>
             </div>
 
-            <!-- Metric 3 -->
             <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700/50">
-              <div class="flex justify-between items-center text-slate-400 text-xs font-medium">
+              <div class="flex justify-between items-center text-slate-300 text-xs font-medium">
                 <span>Kesehatan Sistem (Uptime)</span>
-                <i data-lucide="activity" class="w-4 h-4 text-indigo-400"></i>
+                <i data-lucide="activity" class="w-4 h-4 text-indigo-400" aria-hidden="true"></i>
               </div>
               <div class="mt-2 text-2xl font-bold text-white">99.98%</div>
-              <div class="mt-1 flex items-center text-xs text-slate-400">
-                <span class="w-2 h-2 rounded-full bg-emerald-400 mr-1.5"></span>
+              <div class="mt-1 flex items-center text-xs text-slate-300">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 mr-1.5" aria-hidden="true"></span>
                 <span>Semua server normal</span>
               </div>
             </div>
 
-            <!-- Visual Graph / Chart Mock -->
             <div class="md:col-span-3 bg-slate-800/30 p-4 rounded-xl border border-slate-700/40 mt-2">
               <div class="flex items-center justify-between mb-4">
-                <span class="text-xs font-medium text-slate-300">Grafik Performa Lalu Lintas Data</span>
-                <span class="text-[10px] text-slate-400 uppercase font-mono">Live Data</span>
+                <span class="text-xs font-medium text-slate-200">Grafik Performa Lalu Lintas Data</span>
+                <span class="text-[10px] text-slate-300 uppercase font-mono">Live Data</span>
               </div>
               <div class="h-32 flex items-end justify-between gap-2 px-2 pt-4">
-                <div class="bg-brand-500/30 hover:bg-brand-500/60 transition-all rounded-t w-full h-[40%]"></div>
-                <div class="bg-brand-500/30 hover:bg-brand-500/60 transition-all rounded-t w-full h-[65%]"></div>
-                <div class="bg-brand-500/30 hover:bg-brand-500/60 transition-all rounded-t w-full h-[50%]"></div>
-                <div class="bg-brand-500/30 hover:bg-brand-500/60 transition-all rounded-t w-full h-[85%]"></div>
-                <div class="bg-brand-500/50 hover:bg-brand-500/80 transition-all rounded-t w-full h-[70%]"></div>
-                <div class="bg-brand-500/60 hover:bg-brand-500/90 transition-all rounded-t w-full h-[95%]"></div>
-                <div class="bg-brand-500 hover:bg-brand-400 transition-all rounded-t w-full h-[80%] animate-pulse"></div>
+                <div class="bg-brand-500/30 hover:bg-brand-500/60 transition-all rounded-t w-full h-[40%]" aria-hidden="true"></div>
+                <div class="bg-brand-500/30 hover:bg-brand-500/60 transition-all rounded-t w-full h-[65%]" aria-hidden="true"></div>
+                <div class="bg-brand-500/30 hover:bg-brand-500/60 transition-all rounded-t w-full h-[50%]" aria-hidden="true"></div>
+                <div class="bg-brand-500/30 hover:bg-brand-500/60 transition-all rounded-t w-full h-[85%]" aria-hidden="true"></div>
+                <div class="bg-brand-500/50 hover:bg-brand-500/80 transition-all rounded-t w-full h-[70%]" aria-hidden="true"></div>
+                <div class="bg-brand-500/60 hover:bg-brand-500/90 transition-all rounded-t w-full h-[95%]" aria-hidden="true"></div>
+                <div class="bg-brand-500 hover:bg-brand-400 transition-all rounded-t w-full h-[80%] animate-pulse" aria-hidden="true"></div>
               </div>
             </div>
           </div>
@@ -246,41 +270,38 @@
   <section id="keunggulan" class="py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-2xl mx-auto mb-16">
-        <h2 class="text-xs font-bold text-brand-600 uppercase tracking-widest mb-2">Mengapa Memilih Acme</h2>
+        <h2 class="text-xs font-bold text-brand-700 uppercase tracking-widest mb-2">Mengapa Memilih Acme</h2>
         <p class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Dirancang untuk Efisiensi Tanpa Batas</p>
-        <p class="mt-4 text-slate-600">Kami mengintegrasikan teknologi modern untuk memastikan bisnis Anda berjalan lebih lancar, aman, dan dapat diandalkan setiap saat.</p>
+        <p class="mt-4 text-slate-700">Kami mengintegrasikan teknologi modern untuk memastikan bisnis Anda berjalan lebih lancar, aman, dan dapat diandalkan setiap saat.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Card 1 -->
-        <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:border-brand-200 hover:bg-white transition-all duration-300 custom-shadow group">
-          <div class="w-14 h-14 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-brand-600 group-hover:text-white transition-all">
+        <div class="p-8 rounded-2xl bg-slate-50 border border-slate-200 hover:border-brand-300 hover:bg-white transition-all duration-300 custom-shadow group">
+          <div class="w-14 h-14 rounded-2xl bg-brand-100 text-brand-700 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-brand-600 group-hover:text-white transition-all" aria-hidden="true">
             <i data-lucide="zap" class="w-7 h-7"></i>
           </div>
           <h3 class="text-xl font-bold text-slate-900 mb-3">Kecepatan Maksimal</h3>
-          <p class="text-slate-600 text-sm leading-relaxed">
+          <p class="text-slate-700 text-sm leading-relaxed">
             Infrastruktur cloud ultra-cepat memastikan pemrosesan data kilat tanpa latency, memberi Anda akses informasi dalam hitungan milidetik.
           </p>
         </div>
 
-        <!-- Card 2 -->
-        <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:border-brand-200 hover:bg-white transition-all duration-300 custom-shadow group">
-          <div class="w-14 h-14 rounded-2xl bg-indigo-100 text-indigo-600 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-indigo-600 group-hover:text-white transition-all">
+        <div class="p-8 rounded-2xl bg-slate-50 border border-slate-200 hover:border-brand-300 hover:bg-white transition-all duration-300 custom-shadow group">
+          <div class="w-14 h-14 rounded-2xl bg-indigo-100 text-indigo-700 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-indigo-600 group-hover:text-white transition-all" aria-hidden="true">
             <i data-lucide="shield-check" class="w-7 h-7"></i>
           </div>
           <h3 class="text-xl font-bold text-slate-900 mb-3">Keamanan Tingkat Tinggi</h3>
-          <p class="text-slate-600 text-sm leading-relaxed">
+          <p class="text-slate-700 text-sm leading-relaxed">
             Perlindungan enkripsi AES-256 bit menyeluruh, standar privasi ketat, dan backup harian otomatis menjaga data penting Anda tetap aman.
           </p>
         </div>
 
-        <!-- Card 3 -->
-        <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:border-brand-200 hover:bg-white transition-all duration-300 custom-shadow group">
-          <div class="w-14 h-14 rounded-2xl bg-sky-100 text-sky-600 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-sky-600 group-hover:text-white transition-all">
+        <div class="p-8 rounded-2xl bg-slate-50 border border-slate-200 hover:border-brand-300 hover:bg-white transition-all duration-300 custom-shadow group">
+          <div class="w-14 h-14 rounded-2xl bg-sky-100 text-sky-700 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-sky-600 group-hover:text-white transition-all" aria-hidden="true">
             <i data-lucide="users" class="w-7 h-7"></i>
           </div>
           <h3 class="text-xl font-bold text-slate-900 mb-3">Kolaborasi Lancar</h3>
-          <p class="text-slate-600 text-sm leading-relaxed">
+          <p class="text-slate-700 text-sm leading-relaxed">
             Hubungkan seluruh tim Anda dalam satu ruang kerja digital dengan hak akses fleksibel dan pembaruan tugas secara langsung (real-time).
           </p>
         </div>
@@ -289,57 +310,54 @@
   </section>
 
   <!-- FITUR UNGGULAN -->
-  <section id="fitur" class="py-24 bg-slate-50 border-y border-slate-200/60">
+  <section id="fitur" class="py-24 bg-slate-50 border-y border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-2xl mx-auto mb-16">
-        <h2 class="text-xs font-bold text-brand-600 uppercase tracking-widest mb-2">Fitur Unggulan</h2>
+        <h2 class="text-xs font-bold text-brand-700 uppercase tracking-widest mb-2">Fitur Unggulan</h2>
         <p class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Semua Fitur yang Anda Butuhkan</p>
-        <p class="mt-4 text-slate-600">Satu ekosistem lengkap untuk menggantikan puluhan aplikasi terpisah di perusahaan Anda.</p>
+        <p class="mt-4 text-slate-700">Satu ekosistem lengkap untuk menggantikan puluhan aplikasi terpisah di perusahaan Anda.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Fitur 1 -->
-        <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl transition-all">
-          <div class="w-12 h-12 rounded-xl bg-slate-900 text-white flex items-center justify-center mb-6">
+        <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all">
+          <div class="w-12 h-12 rounded-xl bg-slate-900 text-white flex items-center justify-center mb-6" aria-hidden="true">
             <i data-lucide="bar-chart-3" class="w-6 h-6"></i>
           </div>
           <h3 class="text-lg font-bold text-slate-900 mb-2">Analisis Data Real-time</h3>
-          <p class="text-slate-600 text-sm leading-relaxed mb-4">
+          <p class="text-slate-700 text-sm leading-relaxed mb-4">
             Pantau pertumbuhan bisnis, tren penjualan, dan perilaku pelanggan secara langsung melalui visualisasi laporan yang interaktif.
           </p>
-          <ul class="space-y-2 text-xs text-slate-600">
-            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-brand-600 mr-2"></i> Ekspor laporan PDF & Excel</li>
-            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-brand-600 mr-2"></i> Prediksi tren dengan AI</li>
+          <ul class="space-y-2 text-xs text-slate-700">
+            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-brand-600 mr-2" aria-hidden="true"></i> Ekspor laporan PDF & Excel</li>
+            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-brand-600 mr-2" aria-hidden="true"></i> Prediksi tren dengan AI</li>
           </ul>
         </div>
 
-        <!-- Fitur 2 -->
-        <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl transition-all">
-          <div class="w-12 h-12 rounded-xl bg-slate-900 text-white flex items-center justify-center mb-6">
+        <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all">
+          <div class="w-12 h-12 rounded-xl bg-slate-900 text-white flex items-center justify-center mb-6" aria-hidden="true">
             <i data-lucide="kanban" class="w-6 h-6"></i>
           </div>
           <h3 class="text-lg font-bold text-slate-900 mb-2">Manajemen Proyek</h3>
-          <p class="text-slate-600 text-sm leading-relaxed mb-4">
+          <p class="text-slate-700 text-sm leading-relaxed mb-4">
             Atur papan tugas, tenggat waktu, serta alokasi sumber daya tim Anda secara efisien tanpa ada pekerjaan yang terlewatkan.
           </p>
-          <ul class="space-y-2 text-xs text-slate-600">
-            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-brand-600 mr-2"></i> Tampilan Kanban & Gantt Chart</li>
-            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-brand-600 mr-2"></i> Pengingat otomatis via WhatsApp</li>
+          <ul class="space-y-2 text-xs text-slate-700">
+            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-brand-600 mr-2" aria-hidden="true"></i> Tampilan Kanban & Gantt Chart</li>
+            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-brand-600 mr-2" aria-hidden="true"></i> Pengingat otomatis via WhatsApp</li>
           </ul>
         </div>
 
-        <!-- Fitur 3 -->
-        <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl transition-all">
-          <div class="w-12 h-12 rounded-xl bg-slate-900 text-white flex items-center justify-center mb-6">
+        <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all">
+          <div class="w-12 h-12 rounded-xl bg-slate-900 text-white flex items-center justify-center mb-6" aria-hidden="true">
             <i data-lucide="mail-check" class="w-6 h-6"></i>
           </div>
           <h3 class="text-lg font-bold text-slate-900 mb-2">Email Marketing Otomatis</h3>
-          <p class="text-slate-600 text-sm leading-relaxed mb-4">
+          <p class="text-slate-700 text-sm leading-relaxed mb-4">
             Jangkau ribuan prospek secara personal dengan kampanye email terautomasi berbasis perilaku pengguna.
           </p>
-          <ul class="space-y-2 text-xs text-slate-600">
-            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-brand-600 mr-2"></i> Drag-and-drop template builder</li>
-            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-brand-600 mr-2"></i> A/B Testing otomatis</li>
+          <ul class="space-y-2 text-xs text-slate-700">
+            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-brand-600 mr-2" aria-hidden="true"></i> Drag-and-drop template builder</li>
+            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-brand-600 mr-2" aria-hidden="true"></i> A/B Testing otomatis</li>
           </ul>
         </div>
       </div>
@@ -350,26 +368,25 @@
   <section id="harga" class="py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-2xl mx-auto mb-16">
-        <h2 class="text-xs font-bold text-brand-600 uppercase tracking-widest mb-2">Paket Harga</h2>
+        <h2 class="text-xs font-bold text-brand-700 uppercase tracking-widest mb-2">Paket Harga</h2>
         <p class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Investasi Terbaik untuk Bisnis Anda</p>
-        <p class="mt-4 text-slate-600">Pilih paket fleksibel yang sesuai dengan skala dan kebutuhan operasional perusahaan Anda.</p>
+        <p class="mt-4 text-slate-700">Pilih paket fleksibel yang sesuai dengan skala dan kebutuhan operasional perusahaan Anda.</p>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
-        <!-- Plan Starter -->
         <div class="rounded-3xl p-8 bg-slate-50 border border-slate-200 flex flex-col justify-between hover:border-slate-300 transition-all">
           <div>
             <h3 class="text-xl font-bold text-slate-900">Starter</h3>
-            <p class="text-slate-500 text-xs mt-1">Cocok untuk UMKM & Bisnis Rintisan</p>
+            <p class="text-slate-600 text-xs mt-1">Cocok untuk UMKM & Bisnis Rintisan</p>
             <div class="mt-6 flex items-baseline">
               <span class="text-3xl sm:text-4xl font-extrabold text-slate-900">Rp 199.000</span>
-              <span class="text-slate-500 text-sm font-medium ml-1">/bulan</span>
+              <span class="text-slate-600 text-sm font-medium ml-1">/bulan</span>
             </div>
-            <ul class="mt-8 space-y-4 text-sm text-slate-600">
-              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-emerald-500 mr-3"></i> Hingga 5 Anggota Tim</li>
-              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-emerald-500 mr-3"></i> Analisis Data Dasar</li>
-              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-emerald-500 mr-3"></i> Storage Cloud 10 GB</li>
-              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-emerald-500 mr-3"></i> Dukungan Komunitas</li>
+            <ul class="mt-8 space-y-4 text-sm text-slate-700">
+              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-emerald-600 mr-3" aria-hidden="true"></i> Hingga 5 Anggota Tim</li>
+              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-emerald-600 mr-3" aria-hidden="true"></i> Analisis Data Dasar</li>
+              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-emerald-600 mr-3" aria-hidden="true"></i> Storage Cloud 10 GB</li>
+              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-emerald-600 mr-3" aria-hidden="true"></i> Dukungan Komunitas</li>
             </ul>
           </div>
           <a href="#kontak" onclick="selectPlan('Starter')" class="mt-8 w-full text-center bg-white hover:bg-slate-100 text-slate-900 font-semibold py-3.5 px-4 rounded-xl border border-slate-300 shadow-sm transition-all">
@@ -377,24 +394,23 @@
           </a>
         </div>
 
-        <!-- Plan Professional (Featured) -->
         <div class="rounded-3xl p-8 bg-slate-900 text-white border-2 border-brand-500 flex flex-col justify-between shadow-2xl relative card-glow transform lg:-translate-y-2">
           <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-brand-500 to-indigo-500 text-white text-xs font-bold uppercase tracking-wider px-4 py-1.5 rounded-full shadow-md">
             Paling Populer
           </div>
           <div>
             <h3 class="text-xl font-bold text-white mt-2">Professional</h3>
-            <p class="text-slate-400 text-xs mt-1">Untuk Bisnis Berkembang yang Membutuhkan Kecepatan</p>
+            <p class="text-slate-300 text-xs mt-1">Untuk Bisnis Berkembang yang Membutuhkan Kecepatan</p>
             <div class="mt-6 flex items-baseline">
               <span class="text-3xl sm:text-4xl font-extrabold text-white">Rp 499.000</span>
-              <span class="text-slate-400 text-sm font-medium ml-1">/bulan</span>
+              <span class="text-slate-300 text-sm font-medium ml-1">/bulan</span>
             </div>
-            <ul class="mt-8 space-y-4 text-sm text-slate-300">
-              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-brand-400 mr-3"></i> Hingga 25 Anggota Tim</li>
-              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-brand-400 mr-3"></i> Analisis Data Real-time + AI</li>
-              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-brand-400 mr-3"></i> Storage Cloud 100 GB</li>
-              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-brand-400 mr-3"></i> Otomatisasi Email Marketing</li>
-              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-brand-400 mr-3"></i> Support Prioritas 24/7</li>
+            <ul class="mt-8 space-y-4 text-sm text-slate-200">
+              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-brand-400 mr-3" aria-hidden="true"></i> Hingga 25 Anggota Tim</li>
+              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-brand-400 mr-3" aria-hidden="true"></i> Analisis Data Real-time + AI</li>
+              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-brand-400 mr-3" aria-hidden="true"></i> Storage Cloud 100 GB</li>
+              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-brand-400 mr-3" aria-hidden="true"></i> Otomatisasi Email Marketing</li>
+              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-brand-400 mr-3" aria-hidden="true"></i> Support Prioritas 24/7</li>
             </ul>
           </div>
           <a href="#kontak" onclick="selectPlan('Professional')" class="mt-8 w-full text-center bg-brand-600 hover:bg-brand-500 text-white font-semibold py-3.5 px-4 rounded-xl shadow-lg transition-all">
@@ -402,19 +418,18 @@
           </a>
         </div>
 
-        <!-- Plan Enterprise -->
         <div class="rounded-3xl p-8 bg-slate-50 border border-slate-200 flex flex-col justify-between hover:border-slate-300 transition-all">
           <div>
             <h3 class="text-xl font-bold text-slate-900">Enterprise</h3>
-            <p class="text-slate-500 text-xs mt-1">Solusi Khusus Perusahaan Skala Besar</p>
+            <p class="text-slate-600 text-xs mt-1">Solusi Khusus Perusahaan Skala Besar</p>
             <div class="mt-6 flex items-baseline">
               <span class="text-3xl sm:text-4xl font-extrabold text-slate-900">Kustom</span>
             </div>
-            <ul class="mt-8 space-y-4 text-sm text-slate-600">
-              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-emerald-500 mr-3"></i> Anggota Tim Tanpa Batas</li>
-              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-emerald-500 mr-3"></i> Server On-Premise / Dedicated Cloud</li>
-              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-emerald-500 mr-3"></i> Integrasi API Kustom</li>
-              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-emerald-500 mr-3"></i> Account Manager Khusus</li>
+            <ul class="mt-8 space-y-4 text-sm text-slate-700">
+              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-emerald-600 mr-3" aria-hidden="true"></i> Anggota Tim Tanpa Batas</li>
+              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-emerald-600 mr-3" aria-hidden="true"></i> Server On-Premise / Dedicated Cloud</li>
+              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-emerald-600 mr-3" aria-hidden="true"></i> Integrasi API Kustom</li>
+              <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-emerald-600 mr-3" aria-hidden="true"></i> Account Manager Khusus</li>
             </ul>
           </div>
           <a href="#kontak" onclick="selectPlan('Enterprise')" class="mt-8 w-full text-center bg-white hover:bg-slate-100 text-slate-900 font-semibold py-3.5 px-4 rounded-xl border border-slate-300 shadow-sm transition-all">
@@ -434,77 +449,74 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Testimoni 1 -->
         <div class="bg-slate-800/60 p-8 rounded-2xl border border-slate-700/60 flex flex-col justify-between">
           <div>
-            <div class="flex text-amber-400 mb-4 space-x-1">
-              <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
-              <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
-              <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
-              <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
-              <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+            <div class="flex text-amber-400 mb-4 space-x-1" aria-label="Rating 5 dari 5 bintang">
+              <i data-lucide="star" class="w-5 h-5 fill-amber-400" aria-hidden="true"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-amber-400" aria-hidden="true"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-amber-400" aria-hidden="true"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-amber-400" aria-hidden="true"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-amber-400" aria-hidden="true"></i>
             </div>
-            <p class="text-slate-300 text-sm italic leading-relaxed">
+            <p class="text-slate-200 text-sm italic leading-relaxed">
               "Sejak mengadopsi Acme, waktu koordinasi tim kami berkurang 40%. Dashboard analitiknya sangat membantu pengambilan keputusan mingguan secara cepat."
             </p>
           </div>
           <div class="mt-8 flex items-center space-x-4">
-            <div class="w-10 h-10 rounded-full bg-brand-500 flex items-center justify-center font-bold text-white text-sm">
+            <div class="w-10 h-10 rounded-full bg-brand-500 flex items-center justify-center font-bold text-white text-sm" aria-hidden="true">
               BS
             </div>
             <div>
               <h4 class="font-bold text-sm text-white">Budi Santoso</h4>
-              <p class="text-xs text-slate-400">CEO di TechMedia Nusantara</p>
+              <p class="text-xs text-slate-300">CEO di TechMedia Nusantara</p>
             </div>
           </div>
         </div>
 
-        <!-- Testimoni 2 -->
         <div class="bg-slate-800/60 p-8 rounded-2xl border border-slate-700/60 flex flex-col justify-between">
           <div>
-            <div class="flex text-amber-400 mb-4 space-x-1">
-              <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
-              <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
-              <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
-              <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
-              <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+            <div class="flex text-amber-400 mb-4 space-x-1" aria-label="Rating 5 dari 5 bintang">
+              <i data-lucide="star" class="w-5 h-5 fill-amber-400" aria-hidden="true"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-amber-400" aria-hidden="true"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-amber-400" aria-hidden="true"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-amber-400" aria-hidden="true"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-amber-400" aria-hidden="true"></i>
             </div>
-            <p class="text-slate-300 text-sm italic leading-relaxed">
+            <p class="text-slate-200 text-sm italic leading-relaxed">
               "Fitur otomatisasi email dan laporan real-time benar-benar luar biasa. Omset kami naik 25% hanya dalam kurun waktu 3 bulan setelah implementasi."
             </p>
           </div>
           <div class="mt-8 flex items-center space-x-4">
-            <div class="w-10 h-10 rounded-full bg-indigo-500 flex items-center justify-center font-bold text-white text-sm">
+            <div class="w-10 h-10 rounded-full bg-indigo-500 flex items-center justify-center font-bold text-white text-sm" aria-hidden="true">
               S
             </div>
             <div>
               <h4 class="font-bold text-sm text-white">Siti Rahmawati</h4>
-              <p class="text-xs text-slate-400">CMO di StyleBrand Indonesia</p>
+              <p class="text-xs text-slate-300">CMO di StyleBrand Indonesia</p>
             </div>
           </div>
         </div>
 
-        <!-- Testimoni 3 -->
         <div class="bg-slate-800/60 p-8 rounded-2xl border border-slate-700/60 flex flex-col justify-between">
           <div>
-            <div class="flex text-amber-400 mb-4 space-x-1">
-              <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
-              <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
-              <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
-              <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
-              <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+            <div class="flex text-amber-400 mb-4 space-x-1" aria-label="Rating 5 dari 5 bintang">
+              <i data-lucide="star" class="w-5 h-5 fill-amber-400" aria-hidden="true"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-amber-400" aria-hidden="true"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-amber-400" aria-hidden="true"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-amber-400" aria-hidden="true"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-amber-400" aria-hidden="true"></i>
             </div>
-            <p class="text-slate-300 text-sm italic leading-relaxed">
+            <p class="text-slate-200 text-sm italic leading-relaxed">
               "Layanan bantuan pelanggan Acme sangat responsif dan membantu. Proses migrasi data dari sistem lama berlangsung lancar tanpa denda downtime."
             </p>
           </div>
           <div class="mt-8 flex items-center space-x-4">
-            <div class="w-10 h-10 rounded-full bg-sky-500 flex items-center justify-center font-bold text-white text-sm">
+            <div class="w-10 h-10 rounded-full bg-sky-500 flex items-center justify-center font-bold text-white text-sm" aria-hidden="true">
               HW
             </div>
             <div>
               <h4 class="font-bold text-sm text-white">Hendra Wijaya</h4>
-              <p class="text-xs text-slate-400">CTO di LogistikKita</p>
+              <p class="text-xs text-slate-300">CTO di LogistikKita</p>
             </div>
           </div>
         </div>
@@ -516,51 +528,47 @@
   <section id="faq" class="py-24 bg-slate-50">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <h2 class="text-xs font-bold text-brand-600 uppercase tracking-widest mb-2">Paling Sering Ditanyakan</h2>
+        <h2 class="text-xs font-bold text-brand-700 uppercase tracking-widest mb-2">Paling Sering Ditanyakan</h2>
         <p class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Pertanyaan Umum (FAQ)</p>
       </div>
 
       <div class="space-y-4" id="faq-accordion">
-        <!-- Item FAQ 1 -->
         <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm transition-all">
-          <button class="w-full p-6 text-left font-bold text-slate-900 flex justify-between items-center focus:outline-none faq-btn">
+          <button class="w-full p-6 text-left font-bold text-slate-900 flex justify-between items-center focus:outline-none faq-btn" aria-expanded="false">
             <span>Apakah ada periode uji coba gratis?</span>
-            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-500 transform transition-transform duration-200"></i>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-600 transform transition-transform duration-200" aria-hidden="true"></i>
           </button>
-          <div class="px-6 pb-6 text-slate-600 text-sm hidden leading-relaxed border-t border-slate-100 pt-4">
+          <div class="px-6 pb-6 text-slate-700 text-sm hidden leading-relaxed border-t border-slate-100 pt-4">
             Ya! Kami memberikan akses uji coba gratis penuh selama 14 hari untuk seluruh fitur paket Professional tanpa memerlukan kartu kredit.
           </div>
         </div>
 
-        <!-- Item FAQ 2 -->
         <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm transition-all">
-          <button class="w-full p-6 text-left font-bold text-slate-900 flex justify-between items-center focus:outline-none faq-btn">
+          <button class="w-full p-6 text-left font-bold text-slate-900 flex justify-between items-center focus:outline-none faq-btn" aria-expanded="false">
             <span>Bagaimana jika saya ingin merubah paket layanan?</span>
-            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-500 transform transition-transform duration-200"></i>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-600 transform transition-transform duration-200" aria-hidden="true"></i>
           </button>
-          <div class="px-6 pb-6 text-slate-600 text-sm hidden leading-relaxed border-t border-slate-100 pt-4">
+          <div class="px-6 pb-6 text-slate-700 text-sm hidden leading-relaxed border-t border-slate-100 pt-4">
             Anda dapat melakukan upgrade atau downgrade paket langganan kapan saja melalui menu pengaturan akun. Penyesuaian tagihan akan dilakukan secara proporsional.
           </div>
         </div>
 
-        <!-- Item FAQ 3 -->
         <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm transition-all">
-          <button class="w-full p-6 text-left font-bold text-slate-900 flex justify-between items-center focus:outline-none faq-btn">
+          <button class="w-full p-6 text-left font-bold text-slate-900 flex justify-between items-center focus:outline-none faq-btn" aria-expanded="false">
             <span>Apakah data bisnis saya terjamin keamanannya?</span>
-            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-500 transform transition-transform duration-200"></i>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-600 transform transition-transform duration-200" aria-hidden="true"></i>
           </button>
-          <div class="px-6 pb-6 text-slate-600 text-sm hidden leading-relaxed border-t border-slate-100 pt-4">
+          <div class="px-6 pb-6 text-slate-700 text-sm hidden leading-relaxed border-t border-slate-100 pt-4">
             Sangat terjamin. Kami menerapkan standar keamanan tingkat bank dengan enkripsi AES-256 bit dan sertifikasi ISO 27001 untuk perlindungan data pelanggan.
           </div>
         </div>
 
-        <!-- Item FAQ 4 -->
         <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm transition-all">
-          <button class="w-full p-6 text-left font-bold text-slate-900 flex justify-between items-center focus:outline-none faq-btn">
+          <button class="w-full p-6 text-left font-bold text-slate-900 flex justify-between items-center focus:outline-none faq-btn" aria-expanded="false">
             <span>Metode pembayaran apa saja yang didukung?</span>
-            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-500 transform transition-transform duration-200"></i>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-600 transform transition-transform duration-200" aria-hidden="true"></i>
           </button>
-          <div class="px-6 pb-6 text-slate-600 text-sm hidden leading-relaxed border-t border-slate-100 pt-4">
+          <div class="px-6 pb-6 text-slate-700 text-sm hidden leading-relaxed border-t border-slate-100 pt-4">
             Kami menerima Transfer Bank (Virtual Account), Kartu Kredit/Debit, E-Wallet (Gopay, OVO, ShopeePay), serta pembayaran invoice korporat.
           </div>
         </div>
@@ -572,29 +580,28 @@
   <section id="kontak" class="py-24 bg-white relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <!-- Text & Info -->
         <div>
-          <h2 class="text-xs font-bold text-brand-600 uppercase tracking-widest mb-2">Mulai Langkah Anda</h2>
+          <h2 class="text-xs font-bold text-brand-700 uppercase tracking-widest mb-2">Mulai Langkah Anda</h2>
           <p class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Konsultasikan Kebutuhan Bisnis Anda Bersama Kami</p>
-          <p class="mt-4 text-slate-600 leading-relaxed">
+          <p class="mt-4 text-slate-700 leading-relaxed">
             Isi formulir di samping untuk mendapatkan demo khusus atau melakukan pemesanan paket. Tim spesialis kami akan menghubungi Anda dalam waktu kurang dari 24 jam.
           </p>
 
           <div class="mt-8 space-y-4">
-            <div class="flex items-center space-x-4 text-slate-700">
-              <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center">
+            <div class="flex items-center space-x-4 text-slate-800">
+              <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-700 flex items-center justify-center" aria-hidden="true">
                 <i data-lucide="mail" class="w-5 h-5"></i>
               </div>
               <span class="text-sm font-medium">Daffaph@acme.id</span>
             </div>
-            <div class="flex items-center space-x-4 text-slate-700">
-              <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center">
+            <div class="flex items-center space-x-4 text-slate-800">
+              <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-700 flex items-center justify-center" aria-hidden="true">
                 <i data-lucide="phone" class="w-5 h-5"></i>
               </div>
               <span class="text-sm font-medium">(+62) 89659960109</span>
             </div>
-            <div class="flex items-center space-x-4 text-slate-700">
-              <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center">
+            <div class="flex items-center space-x-4 text-slate-800">
+              <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-700 flex items-center justify-center" aria-hidden="true">
                 <i data-lucide="map-pin" class="w-5 h-5"></i>
               </div>
               <span class="text-sm font-medium">Jakarta Financial Tower Lt. 18, Jakarta Selatan</span>
@@ -602,22 +609,21 @@
           </div>
         </div>
 
-        <!-- Form Card -->
-        <div class="bg-slate-50 p-8 sm:p-10 rounded-3xl border border-slate-200/80 custom-shadow">
+        <div class="bg-slate-50 p-8 sm:p-10 rounded-3xl border border-slate-200 custom-shadow">
           <form id="contact-form" class="space-y-5">
             <div>
-              <label for="fullName" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Nama Lengkap *</label>
-              <input type="text" id="fullName" required placeholder="Contoh: Muhammad Daffa P. H" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent text-slate-900 bg-white text-sm transition-all">
+              <label for="fullName" class="block text-xs font-bold text-slate-800 uppercase tracking-wider mb-2">Nama Lengkap *</label>
+              <input type="text" id="fullName" name="fullName" required placeholder="Contoh: Muhammad Daffa P. H" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent text-slate-900 bg-white text-sm transition-all">
             </div>
 
             <div>
-              <label for="businessEmail" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Email Bisnis *</label>
-              <input type="email" id="businessEmail" required placeholder="nama@perusahaan.com" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent text-slate-900 bg-white text-sm transition-all">
+              <label for="businessEmail" class="block text-xs font-bold text-slate-800 uppercase tracking-wider mb-2">Email Bisnis *</label>
+              <input type="email" id="businessEmail" name="businessEmail" required placeholder="nama@perusahaan.com" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent text-slate-900 bg-white text-sm transition-all">
             </div>
 
             <div>
-              <label for="selectedPlan" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Pilihan Paket</label>
-              <select id="selectedPlan" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent text-slate-900 bg-white text-sm transition-all">
+              <label for="selectedPlan" class="block text-xs font-bold text-slate-800 uppercase tracking-wider mb-2">Pilihan Paket</label>
+              <select id="selectedPlan" name="selectedPlan" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent text-slate-900 bg-white text-sm transition-all">
                 <option value="Uji Coba Gratis">Uji Coba Gratis 14 Hari</option>
                 <option value="Starter">Paket Starter (Rp 199.000/bln)</option>
                 <option value="Professional">Paket Professional (Rp 499.000/bln)</option>
@@ -626,13 +632,13 @@
             </div>
 
             <div>
-              <label for="message" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Catatan Tambahan</label>
-              <textarea id="message" rows="3" placeholder="Tuliskan kebutuhan khusus atau pertanyaan Anda..." class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent text-slate-900 bg-white text-sm transition-all resize-none"></textarea>
+              <label for="message" class="block text-xs font-bold text-slate-800 uppercase tracking-wider mb-2">Catatan Tambahan</label>
+              <textarea id="message" name="message" rows="3" placeholder="Tuliskan kebutuhan khusus atau pertanyaan Anda..." class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent text-slate-900 bg-white text-sm transition-all resize-none"></textarea>
             </div>
 
             <button type="submit" id="submit-btn" class="w-full bg-brand-600 hover:bg-brand-500 text-white font-bold py-4 rounded-xl shadow-lg shadow-brand-600/25 transition-all flex items-center justify-center space-x-2">
               <span>Kirim Formulir & Mulai</span>
-              <i data-lucide="send" class="w-4 h-4"></i>
+              <i data-lucide="send" class="w-4 h-4" aria-hidden="true"></i>
             </button>
           </form>
         </div>
@@ -641,23 +647,21 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="bg-slate-950 text-slate-400 pt-16 pb-12 border-t border-slate-800">
+  <footer class="bg-slate-950 text-slate-300 pt-16 pb-12 border-t border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-slate-800/80">
-        <!-- Brand Info -->
-        <div class="md:col-span-1">
-          <a href="#" class="flex items-center space-x-3 mb-4">
-            <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center text-white">
+        <div>
+          <a href="#" class="flex items-center space-x-3 mb-4" aria-label="Acme Beranda">
+            <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center text-white" aria-hidden="true">
               <i data-lucide="zap" class="w-5 h-5"></i>
             </div>
             <span class="text-xl font-bold text-white">Acme<span class="text-brand-500">.</span></span>
           </a>
-          <p class="text-xs text-slate-400 leading-relaxed">
+          <p class="text-xs text-slate-300 leading-relaxed">
             Platform otomatisasi & analisis bisnis terintegrasi nomor 1 di Indonesia.
           </p>
         </div>
 
-        <!-- Links 1 -->
         <div>
           <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">Navigasi</h4>
           <ul class="space-y-2.5 text-xs">
@@ -668,7 +672,6 @@
           </ul>
         </div>
 
-        <!-- Links 2 -->
         <div>
           <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">Perusahaan</h4>
           <ul class="space-y-2.5 text-xs">
@@ -679,7 +682,6 @@
           </ul>
         </div>
 
-        <!-- Links 3 -->
         <div>
           <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">Bantuan & Legal</h4>
           <ul class="space-y-2.5 text-xs">
@@ -690,37 +692,37 @@
         </div>
       </div>
 
-      <div class="mt-8 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500 space-y-4 md:space-y-0">
+      <div class="mt-8 flex flex-col md:flex-row items-center justify-between text-xs text-slate-400 space-y-4 md:space-y-0">
         <p>© 2026 Acme Digital Inc. Hak Cipta Dilindungi Undang-Undang.</p>
         <div class="flex space-x-6">
-          <a href="#" class="hover:text-white transition-colors"><i data-lucide="twitter" class="w-4 h-4"></i></a>
-          <a href="#" class="hover:text-white transition-colors"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
-          <a href="#" class="hover:text-white transition-colors"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+          <a href="#" class="hover:text-white transition-colors" aria-label="Twitter"><i data-lucide="twitter" class="w-4 h-4"></i></a>
+          <a href="#" class="hover:text-white transition-colors" aria-label="LinkedIn"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+          <a href="#" class="hover:text-white transition-colors" aria-label="Instagram"><i data-lucide="instagram" class="w-4 h-4"></i></a>
         </div>
       </div>
     </div>
   </footer>
 
   <!-- MODAL DEMO INTERAKTIF -->
-  <div id="demo-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+  <div id="demo-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300" role="dialog" aria-modal="true" aria-labelledby="modal-title">
     <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full p-6 text-white shadow-2xl relative transform scale-95 transition-transform duration-300" id="modal-card">
-      <button id="close-demo-btn" class="absolute top-4 right-4 text-slate-400 hover:text-white p-1">
-        <i data-lucide="x" class="w-6 h-6"></i>
+      <button id="close-demo-btn" class="absolute top-4 right-4 text-slate-300 hover:text-white p-1" aria-label="Tutup Modal">
+        <i data-lucide="x" class="w-6 h-6" aria-hidden="true"></i>
       </button>
 
       <div class="flex items-center space-x-3 mb-4">
-        <div class="w-10 h-10 rounded-xl bg-brand-500/20 text-brand-400 flex items-center justify-center">
+        <div class="w-10 h-10 rounded-xl bg-brand-500/20 text-brand-400 flex items-center justify-center" aria-hidden="true">
           <i data-lucide="play" class="w-5 h-5"></i>
         </div>
         <div>
-          <h3 class="font-bold text-lg">Pratinjau Interaktif Platform Acme</h3>
-          <p class="text-xs text-slate-400">Simulasi kerja otomatisasi sistem</p>
+          <h3 id="modal-title" class="font-bold text-lg">Pratinjau Interaktif Platform Acme</h3>
+          <p class="text-xs text-slate-300">Simulasi kerja otomatisasi sistem</p>
         </div>
       </div>
 
       <div class="bg-slate-950 p-6 rounded-xl border border-slate-800 space-y-4 my-6">
         <div class="flex justify-between items-center pb-3 border-b border-slate-800 text-xs">
-          <span class="text-slate-400">Status Modul:</span>
+          <span class="text-slate-300">Status Modul:</span>
           <span class="text-emerald-400 font-mono">AKTIF & SINKRON</span>
         </div>
         <div class="space-y-3">
@@ -728,14 +730,14 @@
             <span>Pemrosesan Laporan Keuangan:</span>
             <span class="font-bold text-brand-400">Selesai (0.4s)</span>
           </div>
-          <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+          <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden" aria-hidden="true">
             <div class="bg-brand-500 h-full w-full"></div>
           </div>
           <div class="flex items-center justify-between text-xs pt-2">
             <span>Pengiriman Email Otomatis:</span>
             <span class="font-bold text-indigo-400">98/100 Terkirim</span>
           </div>
-          <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+          <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden" aria-hidden="true">
             <div class="bg-indigo-500 h-full w-[98%]"></div>
           </div>
         </div>
@@ -751,36 +753,36 @@
 
   <!-- JAVASCRIPT LOGIC -->
   <script>
-    // Inisialisasi Ikon Lucide
     lucide.createIcons();
 
-    // Mobile Menu Toggle
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileLinks = document.querySelectorAll('.mobile-link');
 
     mobileMenuBtn.addEventListener('click', () => {
+      const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+      mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
       mobileMenu.classList.toggle('hidden');
     });
 
     mobileLinks.forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.add('hidden');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
       });
     });
 
-    // Accordion Logic untuk FAQ
     const faqBtns = document.querySelectorAll('.faq-btn');
 
     faqBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         const content = btn.nextElementSibling;
         const icon = btn.querySelector('i');
+        const isExpanded = btn.getAttribute('aria-expanded') === 'true';
 
-        // Toggle visibility
+        btn.setAttribute('aria-expanded', !isExpanded);
         content.classList.toggle('hidden');
         
-        // Rotate Icon
         if (content.classList.contains('hidden')) {
           icon.style.transform = 'rotate(0deg)';
         } else {
@@ -789,7 +791,6 @@
       });
     });
 
-    // Pilihan Paket dari Tombol Pricing ke Form
     function selectPlan(planName) {
       const selectElement = document.getElementById('selectedPlan');
       if (selectElement) {
@@ -797,7 +798,6 @@
       }
     }
 
-    // Modal Demo
     const openDemoBtn = document.getElementById('open-demo-btn');
     const closeDemoBtn = document.getElementById('close-demo-btn');
     const closeDemoAction = document.getElementById('close-demo-action');
@@ -820,7 +820,6 @@
     if(closeDemoBtn) closeDemoBtn.addEventListener('click', closeModal);
     if(closeDemoAction) closeDemoAction.addEventListener('click', closeModal);
 
-    // Toast Notification & Form Submission
     const contactForm = document.getElementById('contact-form');
     const toast = document.getElementById('toast');
     const toastTitle = document.getElementById('toast-title');
@@ -849,7 +848,6 @@
       });
     }
 
-    // Simulasi Animasi Live Data di Dashboard Hero
     setInterval(() => {
       const usersElem = document.getElementById('dash-users');
       if (usersElem) {
